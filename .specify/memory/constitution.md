@@ -1,55 +1,69 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+Version change: None -> 1.0.0
+List of modified principles: All new
+Added sections: Core Principles, Documentation Standards
+Removed sections: None
+Templates requiring updates:
+  ✅ .specify/templates/plan-template.md
+  ✅ .specify/templates/spec-template.md
+  ✅ .specify/templates/tasks-template.md
+  ✅ .specify/templates/commands/sp.constitution.md
+  ✅ .specify/templates/commands/sp.adr.md
+  ✅ .specify/templates/commands/sp.clarify.md
+  ✅ .specify/templates/commands/sp.checklist.md
+  ✅ .specify/templates/commands/sp.implement.md
+  ✅ .specify/templates/commands/sp.phr.md
+  ✅ .specify/templates/commands/sp.plan.md
+  ✅ .specify/templates/commands/sp.specify.md
+  ✅ .specify/templates/commands/sp.tasks.md
+  ✅ README.md
+  ⚠ docs/quickstart.md (pending verification of existence)
+Follow-up TODOs: None
+-->
+# Physical AI & Humanoid Robotics: Embodied Intelligence in the Real World Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Educational Clarity
+All content prioritizes educational clarity over marketing language, ensuring complex topics are accessible to students.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Engineering-First Explanations
+Explanations are grounded in engineering principles, supplemented with conceptual intuition to build a strong foundational understanding.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Modular Learning
+Content is structured into modular units, each aligned to a capstone-driven curriculum for practical application.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Minimal, Reproducible, Industry-Aligned Code
+Code examples must be minimal, fully reproducible, and reflective of industry best practices.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Open Standards Preference
+Preference is given to open standards and established platforms including ROS 2, URDF, Gazebo, NVIDIA Isaac, and OpenAI APIs.
 
-### [PRINCIPLE_6_NAME]
+### VI. Deployable Content
+All content must be deployable using Docusaurus and GitHub Pages to ensure broad accessibility and ease of maintenance.
 
+### VII. Markdown-First Documentation
+Documentation is primarily authored in Markdown, facilitating collaboration and version control.
 
-[PRINCIPLE__DESCRIPTION]
+### VIII. AI-Assisted, Human-Readable Writing
+Content creation is AI-assisted via Claude Code, but the final output must be human-readable and student-friendly.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Documentation Standards
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+Each module must contain:
+- Concept overview
+- System architecture diagrams (described in text)
+- Tooling explanations
+- Step-by-step labs
+- Capstone alignment notes
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+Consistent terminology must be used across all chapters.
+No unexplained acronyms are permitted.
+A comprehensive glossary must be included.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This Constitution supersedes all other project practices. Amendments require thorough documentation, explicit approval from project maintainers, and a clear migration plan for any affected content. All pull requests and content reviews must verify compliance with these principles. Complexity must always be justified against the principles of educational clarity and modularity.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-17 | **Last Amended**: 2025-12-17

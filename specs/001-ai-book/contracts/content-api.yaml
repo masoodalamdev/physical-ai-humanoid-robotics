@@ -1,0 +1,224 @@
+# Content API Contract for Physical AI & Humanoid Robotics Book
+# This represents the logical structure of the documentation site
+
+openapi: 3.0.0
+info:
+  title: Physical AI & Humanoid Robotics Book API
+  description: API contract for the technical book content structure
+  version: 1.0.0
+
+paths:
+  /modules:
+    get:
+      summary: Get all book modules
+      description: Retrieve a list of all modules in the technical book
+      responses:
+        '200':
+          description: List of all modules
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BookModule'
+
+  /modules/{moduleId}:
+    get:
+      summary: Get a specific module
+      description: Retrieve details about a specific module
+      parameters:
+        - name: moduleId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier of the module
+      responses:
+        '200':
+          description: Module details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookModule'
+        '404':
+          description: Module not found
+
+  /modules/{moduleId}/chapters:
+    get:
+      summary: Get chapters in a module
+      description: Retrieve all chapters within a specific module
+      parameters:
+        - name: moduleId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier of the module
+      responses:
+        '200':
+          description: List of chapters in the module
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Chapter'
+
+  /chapters/{chapterId}:
+    get:
+      summary: Get a specific chapter
+      description: Retrieve content and metadata for a specific chapter
+      parameters:
+        - name: chapterId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier of the chapter
+      responses:
+        '200':
+          description: Chapter details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Chapter'
+        '404':
+          description: Chapter not found
+
+components:
+  schemas:
+    BookModule:
+      type: object
+      required:
+        - moduleId
+        - title
+        - description
+        - order
+      properties:
+        moduleId:
+          type: string
+          description: Unique identifier for the module
+          example: "module-1-ros2"
+        title:
+          type: string
+          description: Display title of the module
+          example: "Module 1: ROS 2 – The Robotic Nervous System"
+        description:
+          type: string
+          description: Brief description of the module content
+          example: "Introduction to ROS 2 concepts and architecture"
+        order:
+          type: integer
+          description: Sequence order in the curriculum
+          example: 1
+        prerequisites:
+          type: array
+          items:
+            type: string
+          description: Module IDs that should be completed before this one
+          example: []
+        learningObjectives:
+          type: array
+          items:
+            type: string
+          description: Specific learning objectives for the module
+          example: ["Understand ROS 2 architecture", "Implement basic ROS 2 nodes"]
+        duration:
+          type: string
+          description: Estimated time to complete the module
+          example: "4-6 weeks"
+        status:
+          type: string
+          enum: [draft, review, published]
+          description: Publication status of the module
+          example: "published"
+
+    Chapter:
+      type: object
+      required:
+        - chapterId
+        - moduleId
+        - title
+        - contentPath
+        - order
+      properties:
+        chapterId:
+          type: string
+          description: Unique identifier for the chapter
+          example: "module-1-ros2-concepts"
+        moduleId:
+          type: string
+          description: Reference to the parent module
+          example: "module-1-ros2"
+        title:
+          type: string
+          description: Display title of the chapter
+          example: "ROS 2 Concepts and Architecture"
+        description:
+          type: string
+          description: Brief description of the chapter content
+          example: "Fundamental concepts of ROS 2 architecture"
+        order:
+          type: integer
+          description: Sequence order within the module
+          example: 1
+        contentPath:
+          type: string
+          description: File path to the markdown content
+          example: "/docs/module-1-ros2/concepts.md"
+        type:
+          type: string
+          enum: [concept, lab, exercise, walkthrough, theory]
+          description: Type of content in the chapter
+          example: "concept"
+        estimatedReadingTime:
+          type: integer
+          description: Estimated reading time in minutes
+          example: 25
+        requiresCode:
+          type: boolean
+          description: Indicates if code examples are included
+          example: true
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/LearningResource'
+
+    LearningResource:
+      type: object
+      required:
+        - resourceId
+        - title
+        - type
+        - filePath
+      properties:
+        resourceId:
+          type: string
+          description: Unique identifier for the resource
+          example: "lab-1-ros2-basics"
+        title:
+          type: string
+          description: Display title of the resource
+          example: "Basic ROS 2 Publisher/Subscriber Lab"
+        type:
+          type: string
+          enum: [diagram, lab, exercise, code-example, video, external-link]
+          description: Type of learning resource
+          example: "lab"
+        filePath:
+          type: string
+          description: Path to the resource file
+          example: "/static/img/module-1/lab-diagram.png"
+        description:
+          type: string
+          description: Brief description of the resource
+          example: "Diagram showing publisher-subscriber pattern"
+        difficulty:
+          type: string
+          enum: [beginner, intermediate, advanced]
+          description: Difficulty level of the resource
+          example: "beginner"
+        duration:
+          type: string
+          description: Estimated time to complete if applicable
+          example: "30 minutes"
